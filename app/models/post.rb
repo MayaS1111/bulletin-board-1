@@ -11,4 +11,13 @@
 #  board_id   :integer
 #
 class Post < ApplicationRecord
+  #belongs_to(:expired, created_at: class_name:)
+    
+  #get expired dates
+  #see which ones are before the current date
+  #order them
+
+  def expired
+    #Post.where({:expires_on => })
+  end
 end

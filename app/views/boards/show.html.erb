@@ -1,6 +1,6 @@
 <div>
   <h1>
-    <%= @the_board.name %>
+    <%= @the_board.name%>
   </h1>
 </div>  
 
@@ -8,18 +8,18 @@
 
 <div>
   <h2>Add a new post</h2>
-  <form action="">
+  <form action="/insert_post" method="post">
     <div>
       <label for="title_box">Title</label>
-      <input id="title_box" name="" type="text">
+      <input id="title_box" name="title" type="text">
     </div>
     <div>
       <label for="body_box">Body</label>
-      <textarea id="body_box" name="" type="text"></textarea>
+      <textarea id="body_box" name="body" type="text"></textarea>
     </div>
     <div>
       <label for="expires_on_box">Expires on</label>
-      <input id="expires_on_box" name="" type="date">
+      <input id="expires_on_box" name="expires_on" type="date">
     </div>
     <button>Add post</button>
   </form>
@@ -36,12 +36,12 @@
       <th>Posted on</th>
       <th>Expires on</th>
     </tr>
-    <% @the_board.posts.each do |post|%>
+    <% @the_board.posts.order(:expires_on => :asc).each do |post|%>
     <tr>
       <td><%= post.title%></td>
       <td><%= post.body%></td>
-      <td><%= post.created_at%></td>
-      <td><%= post.expires_on%></td>
+      <td><%= post.created_at.strftime("%b %e, %Y")%></td>
+      <td><%= post.expires_on.strftime("%b %e, %Y")%></td>
     </tr>
     <%end%>
   </table>
@@ -55,14 +55,13 @@
       <th>Posted on</th>
       <th>Expired on</th>
     </tr>
-    <% @the_board.posts.each do |post|%>
+    <% @the_board.posts.order(:expires_on => :desc).each do |post|%>
     <tr>
       <td><%= post.title%></td>
       <td><%= post.body%></td>
-      <td><%= post.created_at%></td>
-      <td><%= post.expires_on%></td>
+      <td><%= post.created_at.strftime("%b %e, %Y")%></td>
+      <td><%= post.expires_on.strftime("%b %e, %Y")%></td>
     </tr>
     <%end%>
   </table>
-  
 </div>
