@@ -11,6 +11,10 @@
 #  board_id   :integer
 #
 class Post < ApplicationRecord
+  # validates(:title, {:presence => true})
+  validates(:body, {:presence => true})
+  # validates(:expires_on, {:presence => true})
+  # validates(:board_id, {:presence => true})
   #belongs_to(:expired, created_at: class_name:)
     
   #get expired dates

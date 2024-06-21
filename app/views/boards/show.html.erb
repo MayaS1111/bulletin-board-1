@@ -11,15 +11,19 @@
   <form action="/insert_post" method="post">
     <div>
       <label for="title_box">Title</label>
-      <input id="title_box" name="title" type="text">
+      <input id="title_box" name="query_title" type="text">
     </div>
     <div>
       <label for="body_box">Body</label>
-      <textarea id="body_box" name="body" type="text"></textarea>
+      <textarea id="body_box" name="query_body" type="text"></textarea>
     </div>
     <div>
       <label for="expires_on_box">Expires on</label>
-      <input id="expires_on_box" name="expires_on" type="date">
+      <input id="expires_on_box" name="query_expires_on" type="date">
+    </div>
+    <div>
+      <label for="board_id_box">Board ID</label>
+      <input id="board_id_box" name="query_board_id" type="text" value="<%= @the_board.id%>">
     </div>
     <button>Add post</button>
   </form>
